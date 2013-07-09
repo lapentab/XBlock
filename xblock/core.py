@@ -680,21 +680,15 @@ class XBlock(Plugin):
             if tag in class_._class_tags:
                 yield name, class_
 
-    # Ignore unused argument: `usage_factory` complaint.
-    # pylint: disable=W0613
     @classmethod
-    def preprocess_input(cls, node, usage_factory):
+    def preprocess_input(cls, node, _usage_factory):
         """The class can adjust a parsed Usage tree."""
         return node
-    # pylint: enable=W0613
 
-    # Ignore unused argument: `usage_factory` complaint.
-    # pylint: disable=W0613
     @classmethod
-    def postprocess_input(cls, node, usage_factory):
+    def postprocess_input(cls, node, _usage_factory):
         """The class can adjust a parsed Usage tree."""
         return node
-    # pylint: enable=W0613
 
     def save(self):
         """Save all dirty fields attached to this XBlock."""

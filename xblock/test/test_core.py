@@ -215,9 +215,8 @@ class TestNamespace(Namespace):
     field_y = String(scope=Scope.user_state, default="default_value")
 
 
-# pylint: disable=W0613
 @patch('xblock.core.Namespace.load_classes', return_value=[('test', TestNamespace)])
-def test_namespace_metaclass(mock_load_classes):
+def test_namespace_metaclass(_mock_load_classes):
     class TestClass(object):
         """Toy class for NamespacesMetaclass testing"""
         __metaclass__ = NamespacesMetaclass
@@ -281,7 +280,6 @@ def test_namespace_field_access(mock_load_classes):
     with assert_raises(AttributeError):
         getattr(field_tester.test, 'field_z')
     assert 'field_z' not in field_tester._model_data
-# pylint: enable=W0613
 
 
 def test_defaults_not_shared():
@@ -537,6 +535,7 @@ def setup_save_failure(update_method):
 def test_xblock_save_one():
     # Mimics a save failure when we only manage to save one of the values
 
+    # Pylint, please allow this method to accept arguments.
     # pylint: disable=W0613
     def fake_update(*args, **kwargs):
         """Mock update method that throws a KeyValueMultiSaveError indicating
@@ -562,6 +561,7 @@ def test_xblock_save_one():
 def test_xblock_save_failure_none():
     # Mimics a save failure when we don't manage to save any of the values
 
+    # Pylint, please allow this method to accept arguments.
     # pylint: disable=W0613
     def fake_update(*args, **kwargs):
         """Mock update method that throws a KeyValueMultiSaveError indicating
