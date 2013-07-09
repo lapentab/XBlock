@@ -1,3 +1,4 @@
+"""Set up for XBlock Workbench"""
 from distutils.core import setup
 
 setup(
